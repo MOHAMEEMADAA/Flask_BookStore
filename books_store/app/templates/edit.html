@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %}
+<title>Edit Book</title>
+{% endblock %}
+
+{% block main %}
+<div class="container mt-4">
+    <h1 class="mb-4">Update Your Book Details</h1>
+    <div class="card p-4">
+        <form method="post" enctype="multipart/form-data">
+            {{ render_form(form) }}
+        </form>
+    </div>
+</div>
+{% endblock %}

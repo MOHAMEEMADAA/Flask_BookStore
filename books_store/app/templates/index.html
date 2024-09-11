@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+<title>Book Library</title>
+{% endblock %}
+
+{% block main %}
+<div class="container mt-4">
+    <h1 class="mb-4">Welcome to My Books Library</h1>
+    <a class="btn btn-primary mb-4" href="{{ url_for('book.add') }}">Add Book</a>
+    <div class="row">
+        {% for book in books %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ book.image_url }}" class="card-img-top" alt="{{ book.title }}" style="width: 200px; height: 300px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.title }}</h5>
+                    <p class="card-text">{{ book.description }}</p>
+                    <p><strong>Pages:</strong> {{ book.number_of_pages }}</p>
+                    <a href="{{ book.show_url }}" class="btn btn-info">Show Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
